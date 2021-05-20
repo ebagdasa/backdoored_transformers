@@ -1203,6 +1203,8 @@ class RobertaForSequenceClassification(RobertaPreTrainedModel):
         scales = MGDASolver.get_scales(dict(ce=ce_grads, back=back_grads),
                                        dict(ce=ce_loss, back=back_loss),
                                        'loss+', ['ce', 'back'])
+        print('ATTACK')
+        print(scales)
         loss = scales['ce'] * ce_loss + scales['back'] * back_loss
         return loss
 
